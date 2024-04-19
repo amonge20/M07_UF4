@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PROJECTE DJANGO ALUMNE PROFESSORAT</title>
+    </head>
+    <body>
+        <header style="background-color: rgb(163, 190, 205);">
+            <h1 style="color: red">Esto es el header</h1>
+            <a href="{% url 'index' %}">Enlace</a>
+            <ul>
+                <li><a href="{% url 'studentsProject' %}">Alumnes</a></li>
+                <li><a href="{% url 'teachersProject' %}">Profesor</a></li>
+            </ul>
+        </header>
+    </body>
+</html>

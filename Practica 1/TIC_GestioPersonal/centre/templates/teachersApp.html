@@ -1,0 +1,30 @@
+<html>
+   <head>
+        <title>Professors</title>
+   </head>
+   <body>
+        <h1>INFORMACIÓ PROFESSORAT TIC BARCELONA (APLICACIO)</h1>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>NOM</td>
+            <td>COGNOM1</td>
+            <td>COGNOM2</td>
+            <td>CORREU</td>
+            <td>CURS</td>
+            <td>MODELS MATRICULATS</td>
+          </tr>
+          {% for teacher in teachers %}
+          <tr>
+              <td>{{ teacher.id }}</td>
+              <td>{{ teacher.nom }}</td>
+              <td>{{ teacher.cognom1 }}</td>
+              <td>{{ teacher.cognom2 }}</td>
+              <td>{{ teacher.correu }}</td>
+              <td>{{ teacher.curs }}</td>
+              <td>{{ teacher.ModulsMatriculats }}</td>
+          </tr>
+          {% endfor %}
+      </table>
+   </body> 
+</html>

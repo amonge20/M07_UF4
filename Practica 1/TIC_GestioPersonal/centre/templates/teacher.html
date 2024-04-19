@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Profesor</title>
+    </head>
+    <body>
+        <h1>Informacio del professorat</h1>
+        <ul>
+            <li>Nom del professor complet: {{ teacher.nom }} {{ teacher.cognom1 }} {{ teacher.cognom2 }}</li>
+            <li>Correu del profesor: {{ teacher.correu }}</li>
+            <li>Curs: {{ teacher.curs }}</li>
+            <li>Moduls: {{ teacher.ModulsMatriculats }}</li>
+        </ul>
+        <a href="{% url 'teachersProject' %}">Volver</a>
+    </body>
+</html>
