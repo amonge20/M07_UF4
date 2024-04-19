@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alumne</title>
+    </head>
+    <body>
+        <h1>Informacio del alumnat</h1>
+        <ul>
+            <li>Nom del alumne complet: {{ student.nom }} {{ student.cognom1 }} {{ student.cognom2 }}</li>
+            <li>Correu del alumne: {{ student.correu }}</li>
+            <li>Curs: {{ student.curs }}</li>
+            <li>Tutor: {{ student.tutor }}</li>
+            <li>Moduls Impartits: {{ student.ModulsImpartits }}</li>
+        </ul>
+        <a href="{% url 'studentsProject' %}">Volver</a>
+    </body>
+</html>
