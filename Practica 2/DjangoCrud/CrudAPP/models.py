@@ -11,7 +11,7 @@ class Person(models.Model):
     nom = models.CharField(max_length=100)
     cognom = models.CharField(max_length=100)
     assignatura = models.CharField(max_length=100)
-    rol = models.ForeignKey(Rol, on_delete=models.CASCADE)
+    rol = models.ForeignKey(Rol, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return f"{self.nom} {self.cognom}"

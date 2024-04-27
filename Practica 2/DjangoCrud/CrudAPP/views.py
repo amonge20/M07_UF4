@@ -1,33 +1,46 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from . import models
+from .models import Person
+from .forms import PersonForm
+
 # Create your views here.
 def teachers(request):
-    return HttpResponse("Lista Profesor")
-    # Person = list(models.Person.objects.all())
-    # nom = Person[0].name
-
-    # id_DB = 1
-    # person = models.Person.objects.get(id = id_DB)
-    # nom = person.name
+    teachers_list = Person.objects.filter(rol_id=1)
+    return render(request, 'teachers.html', {'teachers_list': teachers_list})
 
 def create(request):
-    return HttpResponse("Crear Usuario")
-    # form = PersonForm()
+    if request.method == 'POST':
+        form = PersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('teachers')
 
-    # if request.method == 'POST';
-        # form = PersonForm(request.POST)
-        # if form.is_valid():
-        #   form.save()
-        #   return redirect('index_one')
-
-    # context = {'form':form}
-    # return render(request, 'form.html', context)
+    else:
+        form = PersonForm()
+    return render(request, 'crearTeacher.html', {'form': form})
 
 def update(request):
+    # person = Person.objects.get(id = pk)
+    # form = PersonForm(instance=person)
+
+    # if request.method == 'POST':
+    #     form = PersonForm(request.POST, instance=person)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('teacher')
+    
+    # context = {'form':form}
+    # return render(request, 'actualizarTeacher.html', context)
     return HttpResponse("Actualizar datos usuario")
 
 
-
 def delete(request):
+    # person = Person.objects.get(id = pk)
+
+    # if request.method == 'POST':
+    #     person.delete()
+    #     return redirect('teachers')
+    
+    # context = {'object':person}
+    # return render(request, 'eliminarTeacher.html', context)
     return HttpResponse("Eliminar Usuario")

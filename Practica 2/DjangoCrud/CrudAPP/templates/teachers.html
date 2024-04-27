@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Profesors</title>
+</head>
+<body>
+    <header>
+        <h1>Lista de Profesores</h1>
+        <a href="{% url 'create' %}">Afegir Usuari</a>
+    </header>
+    <ul>
+        {% for teacher in teachers_list %}
+        <td>{{ teacher.nom }} {{ teacher.cognom }}</td>
+        <td><a href="{% url 'update' teacher.id %}">Actualitzar</a></td>
+        <td><a href="{% url 'delete' teacher.id %}">Eliminar</a></td>
+        <br>
+        {% endfor %}
+    </ul>
+</body>
