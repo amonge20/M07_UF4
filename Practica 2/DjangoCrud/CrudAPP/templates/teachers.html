@@ -11,7 +11,7 @@
     </header>
     <ul>
         {% for teacher in teachers_list %}
-        <td>{{ teacher.nom }} {{ teacher.cognom }}</td>
+        <td>{{ teacher.id }} {{ teacher.nom }} {{ teacher.cognom }}</td>
         <td><a href="{% url 'update' teacher.id %}">Actualitzar</a></td>
         <td><a href="{% url 'delete' teacher.id %}">Eliminar</a></td>
         <br>

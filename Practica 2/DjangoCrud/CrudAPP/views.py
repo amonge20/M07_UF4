@@ -5,7 +5,7 @@ from .forms import PersonForm
 
 # Create your views here.
 def teachers(request):
-    teachers_list = Person.objects.filter(rol_id=1)
+    teachers_list = Person.objects.filter(rol_id=1).order_by('id')
     return render(request, 'teachers.html', {'teachers_list': teachers_list})
 
 def create(request):
@@ -19,28 +19,25 @@ def create(request):
         form = PersonForm()
     return render(request, 'crearTeacher.html', {'form': form})
 
-def update(request):
-    # person = Person.objects.get(id = pk)
-    # form = PersonForm(instance=person)
+def update(request,pk):
+    person = Person.objects.get(id = pk)
+    form = PersonForm(instance=person)
 
-    # if request.method == 'POST':
-    #     form = PersonForm(request.POST, instance=person)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('teacher')
+    if request.method == 'POST':
+        form = PersonForm(request.POST, instance=person)
+        if form.is_valid():
+            form.save()
+            return redirect('teachers')
     
-    # context = {'form':form}
-    # return render(request, 'actualizarTeacher.html', context)
-    return HttpResponse("Actualizar datos usuario")
+    context = {'form':form}
+    return render(request, 'actualizarTeacher.html', context)
 
+def delete(request,pk):
+    person = Person.objects.get(id = pk)
 
-def delete(request):
-    # person = Person.objects.get(id = pk)
-
-    # if request.method == 'POST':
-    #     person.delete()
-    #     return redirect('teachers')
+    if request.method == 'POST':
+        person.delete()
+        return redirect('teachers')
     
-    # context = {'object':person}
-    # return render(request, 'eliminarTeacher.html', context)
-    return HttpResponse("Eliminar Usuario")
+    context = {'object':person}
+    return render(request, 'eliminarTeacher.html', context)

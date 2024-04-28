@@ -4,6 +4,6 @@ from CrudAPP import views
 urlpatterns = [
     path('', views.teachers, name='teachers'),
     path('create-form/', views.create, name='create'),
-    path('update-form/<int:id>', views.update, name='update'),
-    path('delete-form/<int:id>', views.delete, name='delete'),
+    path('update-form/<int:pk>', views.update, name='update'),
+    path('delete-form/<int:pk>', views.delete, name='delete'),
 ]
