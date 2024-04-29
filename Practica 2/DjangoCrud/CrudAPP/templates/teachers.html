@@ -9,12 +9,26 @@
         <h1>Lista de Profesores</h1>
         <a href="{% url 'create' %}">Afegir Usuari</a>
     </header>
-    <ul>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>NOM</td>
+            <td>COGNOM</td>
+            <td>ASSIGNATURA</td>
+            <td>ROL</td>
+        </tr>
         {% for teacher in teachers_list %}
-        <td>{{ teacher.id }} {{ teacher.nom }} {{ teacher.cognom }}</td>
-        <td><a href="{% url 'update' teacher.id %}">Actualitzar</a></td>
-        <td><a href="{% url 'delete' teacher.id %}">Eliminar</a></td>
-        <br>
+        <tr>
+            <td>{{ teacher.id }}</td>
+            <td>{{ teacher.nom }}</td>
+            <td>{{ teacher.cognom }}</td>
+            <td>{{ teacher.assignatura }}</td>
+            <td>{{ teacher.rol }}</td>
+            <td>
+                <a href="{% url 'update' teacher.id %}">Actualitzar</a>
+                <a href="{% url 'delete' teacher.id %}">Eliminar</a>
+            </td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 </body>
