@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos para la lista de selección horizontal */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            padding: 8px;
+            background-color: #f1f1f1;
+            text-decoration: none;
+            color: black;
+        }
+        li a:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header style="margin-bottom: 1%;">
+        <h1>Lista d'Usuaris</h1>
+        <ul>
+            <td><a href="{% url 'create' %}">Afegir Usuari</a></td>
+            <td>
+                <form action="" method="get">
+                    <select  style="margin-top: 1%;" name="role" onchange="this.form.submit()">
+                        <option value="" {% if not request.GET.role %} selected {% endif %}>Profesores y Estudiantes</option>
+                        <option value="profesor" {% if request.GET.role == "profesor" %} selected {% endif %}>Profesores</option>
+                        <option value="estudiante" {% if request.GET.role == "estudiante" %} selected {% endif %}>Estudiantes</option>
+                    </select>
+                </form>
+            </td>
+        </ul>
+    </header>
+</body>
+</html>

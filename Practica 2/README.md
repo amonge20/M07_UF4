@@ -1,4 +1,3 @@
 # VIDEO DE LA PRACTICA 2 CRUD 
 
-https://drive.google.com/file/d/1HIoESOj9IJ5AiYZbjcm73alcWv-u33Xn/view?usp=sharing
-
+https://drive.google.com/file/d/1dNnNUcVVRE7EC4ixvPloWp-jY894baV6/view?usp=sharing
